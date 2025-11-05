@@ -1,0 +1,2 @@
+PREFIX = "FOOD"
+GRAPH_MAIN = f"{PREFIX}-graph"

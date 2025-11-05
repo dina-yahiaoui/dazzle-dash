@@ -1,0 +1,2 @@
+PREFIX = "FLIGHTS"
+GRAPH_MAIN = f"{PREFIX}-graph"

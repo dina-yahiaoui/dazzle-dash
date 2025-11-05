@@ -1,0 +1,6 @@
+body { background-color: #f5f6fa; color: #2f3640; }
+h1, h2, h3 { color: #273c75; }
+.card {
+  border-radius: 16px; background: white; padding: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,.1); margin-bottom: 16px;
+}
