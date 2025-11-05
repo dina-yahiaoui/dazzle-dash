@@ -1,14 +1,23 @@
-from dash import Dash
+from dash import Dash, html
+import dash
 import dash_bootstrap_components as dbc
-from layout import layout
-from callbacks import register_callbacks
 
-app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP],
-           suppress_callback_exceptions=True, title="Dazzle Dash")
+app = Dash(__name__, use_pages=True,
+           external_stylesheets=[dbc.themes.BOOTSTRAP],
+           title="Dazzle Dash")
 server = app.server
-app.layout = layout
-register_callbacks(app)
+
+navbar = dbc.NavbarSimple(
+    brand="Dazzle Dash",
+    color="dark", dark=True,
+    children=[
+        dbc.NavItem(dbc.NavLink("Life (WHO)", href="/life")),
+        dbc.NavItem(dbc.NavLink("Food", href="/food")),
+        dbc.NavItem(dbc.NavLink("Flights", href="/flights")),
+    ],
+)
+
+app.layout = dbc.Container([navbar, dash.page_container], fluid=True)
 
 if __name__ == "__main__":
     app.run(debug=True)
-
