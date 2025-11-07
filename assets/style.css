@@ -1,3 +1,147 @@
-body { background:#f6f8fb; color:#222; }
-h2 { color:#1f3c88; margin: 8px 0 12px; }
-.card { background:#fff; border-radius:16px; padding:16px; box-shadow:0 6px 18px rgba(0,0,0,.06); margin-bottom:16px; }
+/* ========== 🌌 Thème global sombre + fond dégradé ========== */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0369a1 100%) fixed !important;
+  background-size: cover;
+  color: #f8fafc !important;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  min-height: 100vh;
+}
+
+/* Laisser le fond visible derrière les pages Dash/Bootstrap */
+#_pages_content,
+.container,
+.container-fluid,
+.page-container {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* ========== NAVBAR ========== */
+.navbar {
+  background-color: rgba(15, 23, 42, 0.95) !important;
+  backdrop-filter: blur(4px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0 0 15px 15px !important; /* arrondi bas */
+}
+.navbar .nav-link {
+  color: #cbd5e1 !important;
+}
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  color: #ffffff !important;
+  text-decoration: underline;
+}
+
+/* ========== TITRES / TEXTES ========== */
+h1, h2, h3, h4, h5, h6 {
+  color: #ffffff !important;
+  font-weight: 700;
+}
+p, .lead, .card-text, .text-muted {
+  color: #e2e8f0 !important;
+}
+
+/* ========== CARTES ========== */
+.card {
+  background: rgba(17, 24, 39, 0.85) !important;
+  color: #f8fafc !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 20px !important; /* arrondi plus visible */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.45);
+  background: rgba(30, 41, 59, 0.9) !important;
+}
+
+/* ========== GRAPHIQUES PLOTLY (coins arrondis aussi) ========== */
+.dash-graph, .js-plotly-plot {
+  width: 100%;
+  background: transparent !important;
+  border-radius: 20px !important;
+  overflow: hidden !important;
+}
+.plot-container, .main-svg {
+  border-radius: 20px !important;
+}
+
+/* ========== BOUTONS ========== */
+.btn, .btn-primary {
+  background-color: #2563eb !important;
+  border: none !important;
+  color: #fff !important;
+  border-radius: 10px !important;
+  transition: all 0.25s ease;
+}
+.btn:hover, .btn-primary:hover {
+  background-color: #1d4ed8 !important;
+  transform: translateY(-1px);
+}
+
+/* ========== DASH INPUTS (Dropdown + RangeSlider) ========== */
+/* Dropdown */
+.Select-control, .Select-menu-outer, .Select-menu-list, .Select, .VirtualizedSelectOption {
+  background: #111827 !important;
+  color: #f8fafc !important;
+  border-color: #243041 !important;
+  border-radius: 10px !important;
+}
+.Select-placeholder, .Select-value-label {
+  color: #cbd5e1 !important;
+}
+.Select-option {
+  background: #111827 !important;
+  color: #f8fafc !important;
+}
+.Select-option.is-focused, .Select-option:hover {
+  background: #1f2937 !important;
+}
+
+/* RangeSlider */
+.rc-slider, .rc-slider-rail {
+  background: #334155 !important;
+}
+.rc-slider-track {
+  background: #60a5fa !important;
+}
+.rc-slider-handle {
+  border: 2px solid #93c5fd !important;
+  background: #0b1220 !important;
+  box-shadow: none !important;
+}
+
+/* ========== SCROLLBAR DISCRÈTE ========== */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.4) transparent;
+}
+*::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.4);
+  border-radius: 8px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ========== ANIMATION APPARITION (fade-in) ========== */
+.card {
+  opacity: 0;
+  animation: fadeIn 0.8s ease forwards;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
